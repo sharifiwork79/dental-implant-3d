@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-peyda: "Vazirmatn";
+  --font-vazir: "Vazirmatn";
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+html {
+  cursor: default;
+}
+
+body {
+  direction: rtl;
+}
+
+/* Fine scrollbar to match the clinical, precise tone of the site */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f7a73;
+  border-radius: 999px;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/50 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_-12px_rgba(11,30,40,0.15)];
+  }
+
+  .glass-panel-dark {
+    @apply bg-clinic-navy/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.5)];
+  }
+
+  .eyebrow {
+    @apply text-xs tracking-[0.25em] uppercase text-clinic-teal font-semibold font-body;
+    letter-spacing: 0.2em;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center gap-3 rounded-full bg-clinic-navy text-clinic-bone px-8 py-4
+           font-display font-semibold text-sm md:text-base transition-transform duration-300 ease-out
+           will-change-transform;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center gap-3 rounded-full border border-clinic-navy/20 text-clinic-navy
+           px-8 py-4 font-display font-semibold text-sm md:text-base bg-white/40 backdrop-blur-md
+           transition-transform duration-300 ease-out will-change-transform;
+  }
+}
+
+/* Section pinning helper used by GSAP ScrollTrigger */
+.pin-section {
+  min-height: 100vh;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
