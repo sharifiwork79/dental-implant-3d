@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
 import SmoothScroll from "@/components/SmoothScroll";
 import PointerTracker from "@/components/PointerTracker";
 import ScrollDirector from "@/components/ScrollDirector";
+import ExperienceCanvas from "@/components/ExperienceCanvas";
 import { Nav } from "@/components/ui/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { Problem } from "@/components/sections/Problem";
@@ -11,17 +11,15 @@ import { Result } from "@/components/sections/Result";
 import { Trust } from "@/components/sections/Trust";
 import { CTA } from "@/components/sections/CTA";
 
-// The R3F canvas touches window/WebGL, so it must never be part of the SSR pass.
-const Experience = dynamic(() => import("@/components/canvas/Experience"), { ssr: false });
-
 export default function Home() {
   return (
     <SmoothScroll>
       <PointerTracker />
       <ScrollDirector />
-      <Experience />
+      <ExperienceCanvas />
       <Nav />
 
+      
       <main id="journey" className="relative z-10">
         <Hero />
         <Problem />
